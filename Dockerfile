@@ -1,1 +1,2 @@
+# Base image
 FROM logstash
