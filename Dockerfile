@@ -8,4 +8,7 @@ RUN mkdir /opt/skytrack/json
 
 COPY skytrack.conf /etc/logstash/conf.d/skytrack.conf
 
+RUN mkdir /root/.aws
+COPY skytrack.aws /root/.aws/credentials
+
 CMD ["logstash", "-f /etc/logstash/conf.d/"]
