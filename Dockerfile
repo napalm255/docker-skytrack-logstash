@@ -7,4 +7,4 @@ RUN git clone https://github.com/napalm255/skytrack.org.git /opt/skytrack
 
 COPY skytrack.conf /etc/logstash/conf.d/skytrack.conf
 
-CMD ["logstash"]
+CMD ["logstash", "-f /etc/logstash/conf.d/"]
