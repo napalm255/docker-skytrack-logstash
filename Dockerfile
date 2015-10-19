@@ -9,6 +9,15 @@ RUN mkdir /opt/skytrack/json
 COPY skytrack.conf /etc/logstash/conf.d/skytrack.conf
 
 RUN mkdir /root/.aws
+RUN mkdir /var/lib/logstash/.aws
+
 COPY skytrack.aws /root/.aws/credentials
+COPY skytrack.aws /var/lib/logstash/.aws/credentials
+
+RUN chown root:root /root/.aws.credentials
+RUN chown logstash:logstash /var/lib/logstash/.aws/credentials
+
+RUN chmod 0600 /root/.aws/credentials
+RUN chmod 0600 /var/lib/logstash/.aws/credentials
 
 CMD ["logstash", "-f /etc/logstash/conf.d/"]
