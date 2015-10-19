@@ -1,4 +1,4 @@
-FROM logstash
+FROM logstash:latest
 
 RUN apt-get update; apt-get upgrade -y
 RUN apt-get install -y git php5-cli php5-curl vim
